@@ -1,0 +1,1 @@
+g++ winbd_utils.cpp test_winbd_utils.cpp -o wv.exe -s -ffunction-sections -fdata-sections -Wno-write-strings -fno-exceptions -fmerge-all-constants -static-libstdc++ -static-libgcc -std=c++11 -lkernel32 -luser32 -lgdi32 -lwinspool -lwininet -lole32 -loleaut32 -luuid -Wconversion-null
