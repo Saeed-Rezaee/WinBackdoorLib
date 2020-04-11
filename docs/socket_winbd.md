@@ -1,6 +1,6 @@
 #### the headers socket_winbd.h has a define named BUFFER_SIZE_DEFAULT which is an integer of 4096 bytes for the headers functions we have 7 currently there will probably be more in more advanced versions but for now we have this one
 
-##### int connect(SOCKET socks_instance, struct sockaddr_in session);
+> int connect(SOCKET socks_instance, struct sockaddr_in session);
 ##### the connect function takes in parameter a SOCKET instance and the structure sockaddr_in, the connect function returns -1 if there is an error otherwise 0 if all goes well
 ```cpp
 #include "socket_winbd.h"
