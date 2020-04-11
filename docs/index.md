@@ -2,7 +2,7 @@
 
 For download WinBackdoorLib visit [my github page](https://github.com/Unam3dd/WinBackdoorLib).
 
-<h3> Latest Version : 0.4 </h3><br></br>
+<h3> Latest Version : 0.5 </h3><br></br>
 
 This Library is for the creation of Backdoor, Keylogger etc..,  in a Simplified way is accessible to all.
 
