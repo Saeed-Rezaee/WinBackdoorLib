@@ -1,5 +1,5 @@
 # WinBackdoorLib
-a simple module to create "reverse shell or backdoor" simply with Windows API
+a simple Lib to create "reverse shell or backdoor" simply with Windows API
 
 ![Image1](capture.PNG)
 
