@@ -1,7 +1,7 @@
 # WinBackdoorLib
 a simple Lib to create "reverse shell or backdoor" simply with Windows API
 
-![Image1](capture.PNG)
+![Image1](screen.PNG)
 
 
 ## example Payload :
