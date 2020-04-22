@@ -33,6 +33,3 @@ int main() //
 }
   ```
 <a href="https://unam3dd.github.io/WinbdDocs/">View Documentation</a>
-<iframe width="420" height="315"
-src="https://www.youtube.com/watch?v=_QK_7yL5704">
-</iframe> 
