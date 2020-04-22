@@ -32,5 +32,5 @@ int main() //
     return 0;
 }
   ```
-  ![Youtube Video](https://www.youtube.com/watch?v=_QK_7yL5704)
-  <a href="https://unam3dd.github.io/WinbdDocs/">View Documentation</a>
+  ![Youtube Url](http://img.youtube.com/vi/_QK_7yL5704/0.jpg)](https://www.youtube.com/watch?v=_QK_7yL5704 "WinBackdoor Presentation")
+ <a href="https://unam3dd.github.io/WinbdDocs/">View Documentation</a>
